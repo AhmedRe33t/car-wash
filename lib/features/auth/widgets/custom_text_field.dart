@@ -33,7 +33,7 @@ class CustomTextFormField extends StatelessWidget {
         
         decoration: InputDecoration(
           labelText: labelText,
-          labelStyle: CustomTextStyle.poppins500style18,
+          labelStyle: CustomTextStyle.poppins300style12.copyWith(color: AppColors.greyColor),
           suffixIcon: suffixIcon,
           border: getBorderStyle(),
           enabledBorder: getBorderStyle(),
