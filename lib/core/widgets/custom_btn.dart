@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomBtn extends StatelessWidget {
-  const CustomBtn({super.key, this.color, required this.text, this.onPressed});
+  const CustomBtn({super.key, this.color, required this.text, this.onPressed, this.style});
   final Color? color;
   final String text;
   final VoidCallback? onPressed;
+  final TextStyle? style;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -23,7 +24,7 @@ class CustomBtn extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: CustomTextStyle.poppins600style24
+          style: style??CustomTextStyle.poppins600style24
              
         ),
       ),

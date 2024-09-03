@@ -16,6 +16,7 @@ abstract class CustomTextStyle{
     color: AppColors.whiteColor,
     fontFamily: "Poppins",
   );
+  
 
   static final poppins300style12 = TextStyle(
     fontSize: 12.sp,
