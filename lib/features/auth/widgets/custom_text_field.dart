@@ -8,18 +8,20 @@ class CustomTextFormField extends StatelessWidget {
     required this.labelText,
     this.onChanged,
     this.onFieldSubmitted,
-    this.obscureText, this.suffixIcon,
+    this.obscureText, this.suffixIcon, this.prefixIcon,
   });
   final String labelText;
   final Function(String)? onChanged;
   final Function(String)? onFieldSubmitted;
   final bool? obscureText;
   final Widget? suffixIcon;
+  final Widget? prefixIcon;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(right: 8.0, left: 8.0, top: 24),
       child: TextFormField(
+        
         validator: (value) {
           if (value!.isEmpty) {
             return "This field is required";
@@ -32,9 +34,11 @@ class CustomTextFormField extends StatelessWidget {
         obscureText: obscureText ?? false,
         
         decoration: InputDecoration(
+          
           labelText: labelText,
           labelStyle: CustomTextStyle.poppins300style12.copyWith(color: AppColors.greyColor),
           suffixIcon: suffixIcon,
+          prefixIcon: prefixIcon,
           border: getBorderStyle(),
           enabledBorder: getBorderStyle(),
           focusedBorder: getBorderStyle(),
