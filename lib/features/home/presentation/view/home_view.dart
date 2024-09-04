@@ -35,6 +35,8 @@ class HomeView extends StatelessWidget {
           SliverToBoxAdapter(child: SizedBox(height: 10.h,),),
           const SliverToBoxAdapter(child: HomeContaner(text1: 'you dont have any', text2: 'car wash oppoinment yet...', text3: 'Book now',),),
           SliverToBoxAdapter(child: SizedBox(height: 10.h,),),
+          const SliverToBoxAdapter(child: HomeContaner(text1: 'you dont have any', text2: 'car wash oppoinment yet...', text3: 'Book now',),),
+          SliverToBoxAdapter(child: SizedBox(height: 10.h,),),
 
 
 
