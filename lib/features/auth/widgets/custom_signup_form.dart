@@ -37,9 +37,9 @@ class CustomSignUpForm extends StatelessWidget {
                 },
               ),
               CustomTextFormField(
-                labelText: 'lastName',
+                labelText: 'phone',
                 onChanged: (lastName) {
-                  authCubit.lastName = lastName;
+                  authCubit.phone = lastName;
                 },
               ),
               CustomTextFormField(
