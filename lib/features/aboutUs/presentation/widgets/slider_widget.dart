@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:carwashing/core/utils/app_assets.dart';
-import 'package:carwashing/features/services/presentation/widgets/custom_slider_text.dart';
+import 'package:carwashing/features/aboutUs/presentation/widgets/custom_slider_text.dart';
 import 'package:flutter/material.dart';
 
 class SliderWidget extends StatefulWidget {

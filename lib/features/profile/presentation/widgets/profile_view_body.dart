@@ -7,7 +7,6 @@ import 'package:carwashing/features/profile/data/models/profile_model.dart';
 import 'package:carwashing/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:carwashing/features/profile/presentation/cubit/profile_state.dart';
 import 'package:carwashing/features/profile/presentation/widgets/Setting_List.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -187,19 +186,19 @@ class CustomProfileBuilder extends StatelessWidget {
           ),
         ],
       ),
-      Setting_item_listtile(
+     const Setting_item_listtile(
           icon: Icon(Icons.edit),
           title: 'Edit Profile',
           color: AppColors.blueColor),
-      Setting_item_listtile(
+    const Setting_item_listtile(
           icon: Icon(Icons.payment),
           title: 'Edit Profile',
           color: AppColors.blueColor),
-      Setting_item_listtile(
+    const  Setting_item_listtile(
           icon: Icon(Icons.workspace_premium),
           title: 'Loyality Club',
           color: AppColors.amperColor),
-      Setting_item_listtile(
+    const  Setting_item_listtile(
           icon: Icon(Icons.logout),
           title: 'Log Out',
           color: Colors.red),

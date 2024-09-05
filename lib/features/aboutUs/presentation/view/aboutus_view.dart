@@ -1,5 +1,5 @@
-import 'package:carwashing/features/services/presentation/widgets/custom_app_bar.dart';
-import 'package:carwashing/features/services/presentation/widgets/slider_widget.dart';
+import 'package:carwashing/features/aboutUs/presentation/widgets/custom_app_bar.dart';
+import 'package:carwashing/features/aboutUs/presentation/widgets/slider_widget.dart';
 import 'package:flutter/material.dart';
 
 class AboutUsView extends StatelessWidget {

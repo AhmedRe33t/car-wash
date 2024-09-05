@@ -2,6 +2,8 @@ import 'package:carwashing/features/auth/auth_cubit/cubit/auth_cubit.dart';
 import 'package:carwashing/features/auth/view/forget_password_view.dart';
 import 'package:carwashing/features/auth/view/sign_in_view.dart';
 import 'package:carwashing/features/auth/view/sign_up_view.dart';
+import 'package:carwashing/features/car_types/cubit/car_types_cubit.dart';
+import 'package:carwashing/features/car_types/presentation/views/car_types_view.dart';
 import 'package:carwashing/features/home/presentation/view/home_view.dart';
 import 'package:carwashing/features/home/presentation/widgets/home_nav_bar.dart';
 import 'package:carwashing/features/splash/presentation/view/splash_view.dart';
@@ -26,8 +28,13 @@ final GoRouter router = GoRouter(routes: [
             create: (context) => AuthCubit(),
             child: const SignUpView(),
           )),
-   GoRoute(
+  GoRoute(
       path: '/homeNavBar',
       builder: (context, state) => const HomeNavBarWidget()),
-          
+  GoRoute(
+      path: '/carTypesView',
+      builder: (context, state) => BlocProvider(
+            create: (context) => CarTypesCubit()..getCarTypes(),
+            child: const CarTypesView(),
+          )),
 ]);
