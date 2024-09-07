@@ -10,9 +10,6 @@ class CarTypesCubit extends Cubit<CarTypesState> {
  List<CartypeModel>carTypes=[];
   
  
-   
-
-
    getCarTypes()async{
     emit(GetCarTypesLoading());
    try {
