@@ -8,6 +8,10 @@ class CarTypesCubit extends Cubit<CarTypesState> {
   CarTypesCubit() : super(CarTypesInitial());
 
  List<CartypeModel>carTypes=[];
+  
+ 
+   
+
 
    getCarTypes()async{
     emit(GetCarTypesLoading());
@@ -22,5 +26,6 @@ class CarTypesCubit extends Cubit<CarTypesState> {
    emit(GetCarTypesFaluire(errorMassege: e.toString()));
 }
    }
+
 }
 

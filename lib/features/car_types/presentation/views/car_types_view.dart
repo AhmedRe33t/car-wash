@@ -48,7 +48,7 @@ class CarListView extends StatelessWidget {
         return  state is GetCarTypesLoading?const CustomShimmerCategory():  Expanded(
           child: ListView.separated(
             shrinkWrap: true,
-            itemBuilder: (context,index)=>RadioButton(model:context.read<CarTypesCubit>().carTypes[index] ,),
+            itemBuilder: (context,index)=>RadioButton(model:context.read<CarTypesCubit>().carTypes[index],index: index ,),
              separatorBuilder: (context,index)=>SizedBox(height: 6.h,),
              itemCount: context.read<CarTypesCubit>().carTypes.length),
         );

@@ -77,7 +77,9 @@ class CustomSignUpForm extends StatelessWidget {
                         if (authCubit.termsAndConditionCheckBoxValue == true) {
                           if (authCubit.signupFormKey.currentState!
                               .validate()) {
+                                
                            await authCubit.signUpWithEmailAndPassword();
+                           
                           }
                         }
                       },

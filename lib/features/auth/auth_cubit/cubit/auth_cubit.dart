@@ -1,4 +1,5 @@
 import 'package:carwashing/features/auth/auth_cubit/cubit/auth_state.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,10 +20,11 @@ class AuthCubit extends Cubit<AuthState> {
   Future<void> signUpWithEmailAndPassword() async {
     try {
       emit(SignupLoadingState());
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+    UserCredential  user =await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailAddress!,
         password: password!,
       );
+     await addProfileData(user.user!.uid);
       
       await verifyEmail();
       emit(SignupSuccessState());
@@ -31,6 +33,14 @@ class AuthCubit extends Cubit<AuthState> {
     } catch (e) {
       emit(SignupFailureState(errMessage: e.toString()));
     }
+  }
+  addProfileData(String id )async{
+      CollectionReference profileData= await FirebaseFirestore.instance.collection('users');
+         profileData.doc(id).set({
+          'name':fristName,
+          'email':emailAddress,
+          'phone':phone,
+         });
   }
 
   void _signUpHandleException(FirebaseAuthException e) {
