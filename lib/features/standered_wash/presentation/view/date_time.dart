@@ -1,4 +1,5 @@
 
+import 'package:carwashing/core/functions/navigation.dart';
 import 'package:carwashing/core/utils/app_colors.dart';
 import 'package:carwashing/core/utils/app_text_style.dart';
 import 'package:carwashing/core/widgets/custom_btn.dart';
@@ -25,7 +26,7 @@ class DateTimeView extends StatelessWidget {
       ),
       body: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(child: CustomSliderThem(),),
+          SliverToBoxAdapter(child: CustomSliderThem(indexTop: 0,),),
           SliverToBoxAdapter(child: SizedBox(height: 10.h,),),
           SliverToBoxAdapter(child: Text('Select your date and time',style: CustomTextStyle.poppins500style18.copyWith(color: AppColors.primaryColor),),),
           SliverToBoxAdapter(child: Text('select days when wash is available',style: CustomTextStyle.poppins500style18,),),
@@ -35,7 +36,7 @@ class DateTimeView extends StatelessWidget {
          SliverToBoxAdapter(child: Padding(
            padding: const EdgeInsets.all(30),
            child: CustomBtn(text: 'Next ',color: AppColors.amperColor,onPressed: () {
-                         
+                         customNavigate(context, path: '/overView');
                         },),
          ),)
 

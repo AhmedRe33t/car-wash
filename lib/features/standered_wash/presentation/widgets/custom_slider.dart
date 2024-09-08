@@ -1,25 +1,26 @@
+import 'package:carwashing/core/utils/app_colors.dart';
 import 'package:carwashing/features/standered_wash/presentation/widgets/utils.dart';
 import 'package:flutter/material.dart';
 
 class CustomSliderThem extends StatefulWidget {
-   CustomSliderThem({super.key});
-
+   CustomSliderThem({super.key, required this.indexTop});
+   int indexTop;
   @override
   State<CustomSliderThem> createState() => _CustomSliderThemState();
 }
 
 class _CustomSliderThemState extends State<CustomSliderThem> {
-     final Color activeColor=Colors.amber;
+     final Color activeColor=AppColors.deepAmperColor;
 
      final Color inActiveColor=Colors.grey;
 
      final double thumReduies=14;
 
      final double tickMarkReduies=14;
-     int indexTop=0;
+    
 
       double valu=0;
-    final List<num>nums=[1,2,3];
+   
   @override
   Widget build(BuildContext context) {
     final labels=['1','2','3'];
@@ -40,7 +41,7 @@ class _CustomSliderThemState extends State<CustomSliderThem> {
                 final selectedColor=Colors.amber;
                 final unselectedColor=Colors.grey;
 
-                final isSelected=index<=indexTop;
+                final isSelected=index<=widget.indexTop;
 
                 final color=isSelected?selectedColor:unselectedColor;
                 return buildLabel(label: labels, width: 30, color: color);
@@ -72,10 +73,10 @@ class _CustomSliderThemState extends State<CustomSliderThem> {
           min: 0,
           //label: valu.round().toString(),
           divisions: 2,
-          value:indexTop.toDouble() ,
-           onChanged: (value)=>setState(() =>
+          value:widget.indexTop.toDouble() ,
+           onChanged: (value)=>
             
-           this.indexTop =value.toInt()))),
+           widget.indexTop =value.toInt())),
     ],
   );
   }

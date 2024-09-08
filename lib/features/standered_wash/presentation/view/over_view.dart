@@ -20,15 +20,14 @@ class OverView extends StatelessWidget {
         backgroundColor: Colors.white,
         centerTitle: true,
        
-        title:const Padding(
-      padding:  EdgeInsets.only(top: 6,right: 30,left: 30,bottom: 0),
-      child: standered_screens(title: 'Standard wash', subTitle: 'Overview',),
+        title:const 
+       standered_screens(title: 'Standard wash', subTitle: 'Overview',),
         
        
-        )),
+        ),
       body: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(child: CustomSliderThem(),),
+          SliverToBoxAdapter(child: CustomSliderThem(indexTop: 2,),),
           SliverToBoxAdapter(child: SizedBox(height: 10.h,),),
           SliverToBoxAdapter(child:  Padding(
       padding: const EdgeInsets.only(top: 6,right: 30,left: 30,bottom: 0),
