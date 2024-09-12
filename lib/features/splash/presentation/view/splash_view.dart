@@ -1,5 +1,4 @@
 import 'package:carwashing/core/functions/navigation.dart';
-import 'package:carwashing/core/utils/app_assets.dart';
 import 'package:carwashing/core/utils/app_colors.dart';
 import 'package:carwashing/core/utils/app_text_style.dart';
 import 'package:carwashing/core/widgets/custom_btn.dart';
@@ -31,7 +30,7 @@ class _SplashViewState extends State<SplashView> {
                       const SliverToBoxAdapter(child: CustomSplashImage(),),
                       SliverToBoxAdapter(child: SizedBox(height: 100.h,),),
                        SliverToBoxAdapter(child: CustomBtn(text: 'Get Started ',color: AppColors.amperColor,onPressed: () {
-                        customNavigaeReplacement(context, path: '/dateTimeView');
+                        customNavigaeReplacement(context, path: '/beforeStartBody');
                       },),)
 
                       

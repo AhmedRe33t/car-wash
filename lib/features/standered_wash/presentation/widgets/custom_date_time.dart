@@ -1,7 +1,4 @@
-import 'package:carwashing/features/standered_wash/presentation/cubit/date_time_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
@@ -12,6 +9,9 @@ class CustomDateAndTime extends StatefulWidget {
   State<CustomDateAndTime> createState() => _CustomDateAndTimeState();
 }
 
+TextEditingController timeController=TextEditingController();
+TextEditingController dateController=TextEditingController();
+
 class _CustomDateAndTimeState extends State<CustomDateAndTime> {
     
   @override
@@ -21,7 +21,7 @@ class _CustomDateAndTimeState extends State<CustomDateAndTime> {
       child: Column(
         children: [
           TextField(
-            controller:context.read<DateTimeCubit>().timePicker,
+            controller:timeController,
             decoration: InputDecoration(
               border: OutlineInputBorder(borderRadius:BorderRadius.circular(30),
                ),
@@ -36,14 +36,14 @@ class _CustomDateAndTimeState extends State<CustomDateAndTime> {
               var time=await showTimePicker(context: context, initialTime: TimeOfDay.now());
               if(time!=null){
                 setState(() {
-                 context.read<DateTimeCubit>(). timePicker.text=time.format(context);
+                 timeController.text=time.format(context);
                 });
               }
             },
           ),
           SizedBox(height: 20.h,),
           TextField(
-            controller:context.read<DateTimeCubit>(). datePicker,
+            controller:dateController,
             decoration: InputDecoration(
               border: OutlineInputBorder(borderRadius:BorderRadius.circular(30),
                ),
@@ -60,7 +60,8 @@ class _CustomDateAndTimeState extends State<CustomDateAndTime> {
               if(dateTime!=null){
                 String formattedDate= DateFormat('yyyy-MM-dd').format(dateTime);
                 setState(() {
-                 context.read<DateTimeCubit>(). datePicker.text=formattedDate;
+                 dateController.text=formattedDate;
+                 
                 });
               }
             },

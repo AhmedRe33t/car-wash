@@ -9,10 +9,8 @@ class CartypeModel{
   CartypeModel({required this.name, required this.image, });
   factory CartypeModel.fromJson(jsonData){
     return CartypeModel(
-      name:jsonData[DataString.name] , 
-      image:jsonData[DataString.image],
-    
-       
+      name:jsonData['name'] , 
+      image:jsonData['image'],
        );
   }
 }

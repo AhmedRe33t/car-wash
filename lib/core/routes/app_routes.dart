@@ -2,9 +2,9 @@ import 'package:carwashing/features/auth/auth_cubit/cubit/auth_cubit.dart';
 import 'package:carwashing/features/auth/view/forget_password_view.dart';
 import 'package:carwashing/features/auth/view/sign_in_view.dart';
 import 'package:carwashing/features/auth/view/sign_up_view.dart';
-import 'package:carwashing/features/car_types/cubit/car_types_cubit.dart';
-import 'package:carwashing/features/car_types/presentation/views/car_types_view.dart';
-import 'package:carwashing/features/home/presentation/view/home_view.dart';
+import 'package:carwashing/features/car_types/cubit/cubit/before_start_page_cubit.dart';
+import 'package:carwashing/features/car_types/presentation-2/views/Before_Start.dart';
+import 'package:carwashing/features/car_types/presentation-2/widgets/Before_Start_body.dart';
 import 'package:carwashing/features/home/presentation/widgets/home_nav_bar.dart';
 import 'package:carwashing/features/splash/presentation/view/splash_view.dart';
 import 'package:carwashing/features/standered_wash/presentation/cubit/date_time_cubit.dart';
@@ -30,7 +30,7 @@ final GoRouter router = GoRouter(routes: [
   GoRoute(
       path: '/overView',
       builder: (context, state) => BlocProvider(
-            create: (context) => DateTimeCubit(),
+            create: (context) => DateTimeCubit()..getDateAndTime(),
             child: const OverView(),
           )),
   GoRoute(
@@ -46,9 +46,16 @@ final GoRouter router = GoRouter(routes: [
       path: '/homeNavBar',
       builder: (context, state) => const HomeNavBarWidget()),
   GoRoute(
-      path: '/carTypesView',
-      builder: (context, state) => BlocProvider(
-            create: (context) => CarTypesCubit()..getCarTypes(),
-            child: const CarTypesView(),
+      path: '/beforeStartBody',
+      builder: (context, state) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => CarTypesCubit()..getCarTypes(),
+              ),
+           
+              
+            ],
+            child:const Before_Start(),
           )),
+  
 ]);
