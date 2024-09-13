@@ -63,7 +63,8 @@ class CustomProfileBuilder extends StatelessWidget {
                   height: 100,
                   width: 100,
                   child: CachedNetworkImage(
-                    imageUrl: model.image??'https://firebasestorage.googleapis.com/v0/b/car-wash-3252a.appspot.com/o/coolest-cars-feature.webp?alt=media&token=eaf2e03a-1302-4b89-b73d-a393423502ba',
+                    
+                    imageUrl: model.image,
                     placeholder: (context, url) => Shimmer.fromColors(
                       baseColor: AppColors.greyColor,
                       highlightColor: Colors.white,
@@ -192,9 +193,9 @@ class CustomProfileBuilder extends StatelessWidget {
           title: 'Edit Profile',
           color: AppColors.blueColor),
     const Setting_item_listtile(
-          icon: Icon(Icons.payment),
-          title: 'Edit Profile',
-          color: AppColors.blueColor),
+          icon: Icon(Icons.save),
+          title: 'History',
+          color: Colors.blueAccent),
     const  Setting_item_listtile(
           icon: Icon(Icons.workspace_premium),
           title: 'Loyality Club',

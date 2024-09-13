@@ -31,11 +31,11 @@ class SignInTitle extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                    SizedBox(height: 70.h,),
-                    Text(text1.toString()??'',style: CustomTextStyle.poppins600style24,),
-                     Text(text2.toString()??'',style: CustomTextStyle.poppins600style24,),
+                    Text(text1.toString(),style: CustomTextStyle.poppins600style24,),
+                     Text(text2.toString(),style: CustomTextStyle.poppins600style24,),
                      SizedBox(height: 6.h,),
-                      Text(text3.toString()??'',style: CustomTextStyle.poppins300style12,),
-                      Text(text4.toString()??'',style: CustomTextStyle.poppins300style12,)
+                      Text(text3.toString(),style: CustomTextStyle.poppins300style12,),
+                      Text(text4.toString(),style: CustomTextStyle.poppins300style12,)
                   ],
                 ),
               ),

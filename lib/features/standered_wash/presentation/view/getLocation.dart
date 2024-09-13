@@ -52,11 +52,9 @@ class Getlocation extends StatelessWidget {
                 text: 'Next',
                 color: AppColors.amperColor,
                 onPressed: () {
-                 
-                    // Use the selected position (userPos) here
-                    //print('Selected Position: ${userPos!.latitude}, ${userPos!.longitude}');
+                  if(userPos !=null){
                     customNavigate(context, path: '/overview');
-                  
+                  }else null;
                 },
               ),
             ),

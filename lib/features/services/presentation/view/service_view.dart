@@ -5,15 +5,16 @@ import 'package:carwashing/features/services/presentation/cubit/service/service_
 import 'package:carwashing/features/services/presentation/widgets/service_header.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ServicesView extends StatelessWidget {
 
-  Map<String,int> Prices = {
-    'Standard Wash': 10,
-    'Deluxe Wash': 20,
-    'Premium Wash': 30,
+  Map<String,String> Prices = {
+    'Standard Wash': '\$10',
+    'Deluxe Wash': '\$20',
+    'Premium Wash': '\$30',
   };
 
   ServicesView({super.key});
@@ -67,7 +68,7 @@ class ServicesView extends StatelessWidget {
                 Colors.deepOrangeAccent
                 ),
               ),
-
+               
               SliverToBoxAdapter(child: SizedBox(height: 100.h,),),
              SliverToBoxAdapter( child:  BlocBuilder<ServiceCubit, ServiceState>(
                builder: (context, state) {

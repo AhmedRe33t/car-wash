@@ -23,7 +23,7 @@ class Before_Start extends StatelessWidget {
         toolbarHeight: 120.h,
         backgroundColor:const Color(0xff1B5276),
       ),
-      body: CustomScrollView(
+      body:const CustomScrollView(
           slivers: [
             SliverToBoxAdapter(child: BeforeStartBody())
             ]),

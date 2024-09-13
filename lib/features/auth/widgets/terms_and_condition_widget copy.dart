@@ -15,6 +15,7 @@ class TermsAndConditionWidget extends StatelessWidget {
           TextSpan(
             children: [
               TextSpan(
+                
                   text: 'IHaveAgreeToOur ',
                   style: CustomTextStyle.poppins300style12.copyWith(color: AppColors.greyColor)),
               TextSpan(
