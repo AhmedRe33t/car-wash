@@ -20,6 +20,7 @@ class CarWash extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         routerConfig: router,
+        
       
     );
   });}

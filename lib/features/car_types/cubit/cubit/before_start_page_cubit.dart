@@ -1,5 +1,6 @@
 // before_start_page_cubit.dart
 
+
 import 'package:carwashing/features/car_types/data/carType_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -18,12 +19,18 @@ class CarTypesCubit extends Cubit<CarTypesState> {
 
  List<CartypeModel>carTypes=[];
   
-   addCarTypes({required String carType,required String carImage})async{
+   addCarTypes({required String carType,required String carImage,
+   required String standard,required String deluxe,required String premium
+   })async{
     emit(AddCarTypesLoading());
    try {
-  await FirebaseFirestore.instance.collection('users').doc(FirebaseAuth.instance.currentUser!.uid).collection('carTypes').add({
+  await FirebaseFirestore.instance.collection('users').doc(FirebaseAuth.instance.currentUser!.uid).collection('carTypes').doc(FirebaseAuth.instance.currentUser!.uid).set({
    'name':carType,
-   'image':carImage
+   'image':carImage,
+   'standard':standard,
+   'deluxe':deluxe,
+   'Premium':premium
+
   });
   emit(AddCarTypesSuccess());
 } on Exception catch (e) {
@@ -33,6 +40,7 @@ class CarTypesCubit extends Cubit<CarTypesState> {
 
    getCarTypes()async{
     emit(GetCarTypesLoading());
+    
    try {
   await FirebaseFirestore.instance.collection('carTypes').get().then((value){
      value.docs.forEach((elemnt){
@@ -44,6 +52,7 @@ class CarTypesCubit extends Cubit<CarTypesState> {
    emit(GetCarTypesFaluire(errorMassege: e.toString()));
 }
    }
+
 
 
  void selectCar(String carType) {

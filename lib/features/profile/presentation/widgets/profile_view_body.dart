@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carwashing/core/functions/custom_toast.dart';
+import 'package:carwashing/core/functions/navigation.dart';
 import 'package:carwashing/core/utils/app_colors.dart';
 import 'package:carwashing/core/utils/app_text_style.dart';
 import 'package:carwashing/core/widgets/custom_shimmer_category.dart';
@@ -61,7 +62,7 @@ class CustomProfileBuilder extends StatelessWidget {
                   height: 100,
                   width: 100,
                   child: CachedNetworkImage(
-                    imageUrl: model.image,
+                    imageUrl: model.image??'https://firebasestorage.googleapis.com/v0/b/car-wash-3252a.appspot.com/o/coolest-cars-feature.webp?alt=media&token=eaf2e03a-1302-4b89-b73d-a393423502ba',
                     placeholder: (context, url) => Shimmer.fromColors(
                       baseColor: AppColors.greyColor,
                       highlightColor: Colors.white,
@@ -141,10 +142,7 @@ class CustomProfileBuilder extends StatelessWidget {
                   errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
             ),
-            // Image.asset(
-            //   model.carTypes[0].image,
-            //   scale: 5,
-            // ),
+            
             SizedBox(
               height: 10.h,
             ),
@@ -161,7 +159,9 @@ class CustomProfileBuilder extends StatelessWidget {
               style:const ButtonStyle(
                   backgroundColor:
                       WidgetStatePropertyAll(AppColors.amperColor)),
-              onPressed: () {},
+              onPressed: () {
+                customNavigate(context, path: '/beforeStartBody');
+              },
               child:const Text(
                 'Change',
                 style: TextStyle(

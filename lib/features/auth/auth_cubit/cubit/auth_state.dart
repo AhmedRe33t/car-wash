@@ -35,3 +35,6 @@ final class ResetPasswordFailureState extends AuthState {
 final class TermsAndConditionUpdateState extends AuthState {}
 
 final class ObscurePasswordTextUpdateState extends AuthState {}
+
+
+class PickgallerySuccessState extends AuthState {}

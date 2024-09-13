@@ -1,4 +1,3 @@
-import 'package:carwashing/core/utils/app_string.dart';
 import 'package:carwashing/features/car_types/data/carType_model.dart';
 
 class ProfileDataMode{
@@ -12,10 +11,10 @@ class ProfileDataMode{
   ProfileDataMode({required this.carTypes,required this.email, required this.image, required this.name, required this.phone,});
   factory ProfileDataMode.fromJson(jsonDta,listCarTypes){
      return ProfileDataMode(
-      email:jsonDta[DataString.email] ,
-      image: jsonDta[DataString.image],
-      name:jsonDta[DataString.name] , 
-      phone:jsonDta[DataString.phone] ,
+      email:jsonDta['email'] ,
+      image: jsonDta['image'],
+      name:jsonDta['name'] , 
+      phone:jsonDta['phone'] ,
       carTypes: listCarTypes
       
       );

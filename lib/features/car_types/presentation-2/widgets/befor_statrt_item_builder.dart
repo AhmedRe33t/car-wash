@@ -61,13 +61,18 @@ class befor_statrt_item_builder extends StatelessWidget {
               groupValue: selectedCar,
               onChanged: (value) {
                 beforestart.selectCar(model.name);
+                 //await context.read<CarTypesCubit>().addCarTypes(carType: model.name, carImage: model.image);
               },
             ),
           ],
         ),
-        onTap: () {
-                          beforestart.selectCar(model.name);
-                          context.read<CarTypesCubit>().addCarTypes(carType: model.name, carImage: model.image);
+        onTap: () async {
+                          
+        await context.read<CarTypesCubit>().addCarTypes(carType: model.name, carImage: model.image, 
+         standard: model.standard, deluxe: model.deluxe, premium: model.premium,
+        
+        );
+        beforestart.selectCar(model.name);
 
         },
       ),

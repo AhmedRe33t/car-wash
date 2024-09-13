@@ -1,8 +1,12 @@
+import 'dart:io';
+
 import 'package:carwashing/features/auth/auth_cubit/cubit/auth_state.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
@@ -17,13 +21,55 @@ class AuthCubit extends Cubit<AuthState> {
   GlobalKey<FormState> forgotPasswordFormKey = GlobalKey();
   bool? checkBoxValue=true;
 
+ FirebaseStorage fireStorage=FirebaseStorage.instance;
+
+
+
+
+
+XFile? image; //path
+  File? images; 
+  
+ uploadImage()async{
+  final ImagePicker picker = ImagePicker();
+// Pick an image.
+ image = await (picker.pickImage(source: ImageSource.gallery));
+  
+ if (image !=null) {
+  images=File(image!.path);
+  await fireStorage.ref()
+  .child('images/').child('${FirebaseAuth.instance.currentUser!.uid} .png').putFile( File(image!.path));
+   //emit(PickgallerySuccessState());
+  
+  
+ 
+  return images!.readAsBytes();
+}
+
+else{
+  print('no select image');
+}
+ }
+
+
+
+
+
+
+
   Future<void> signUpWithEmailAndPassword() async {
     try {
       emit(SignupLoadingState());
     UserCredential  user =await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailAddress!,
         password: password!,
+        
       );
+      await fireStorage
+      .ref()
+      .child("images/")
+      .child("${FirebaseAuth.instance.currentUser!.uid}.png}")
+      .putFile(File(image!.path));
      await addProfileData(user.user!.uid);
       
       await verifyEmail();
@@ -40,7 +86,13 @@ class AuthCubit extends Cubit<AuthState> {
           'name':fristName,
           'email':emailAddress,
           'phone':phone,
+          'image':await fireStorage
+      .ref()
+      .child("images/")
+      .child("${FirebaseAuth.instance.currentUser!.uid}.png}")
+      .getDownloadURL()
          });
+         
   }
 
   void _signUpHandleException(FirebaseAuthException e) {

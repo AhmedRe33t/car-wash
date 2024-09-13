@@ -30,7 +30,7 @@ class _SplashViewState extends State<SplashView> {
                       const SliverToBoxAdapter(child: CustomSplashImage(),),
                       SliverToBoxAdapter(child: SizedBox(height: 100.h,),),
                        SliverToBoxAdapter(child: CustomBtn(text: 'Get Started ',color: AppColors.amperColor,onPressed: () {
-                        customNavigaeReplacement(context, path: '/beforeStartBody');
+                        customNavigaeReplacement(context, path: '/signInView');
                       },),)
 
                       

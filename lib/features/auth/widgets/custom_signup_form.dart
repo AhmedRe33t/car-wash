@@ -65,6 +65,17 @@ class CustomSignUpForm extends StatelessWidget {
                   authCubit.password = password;
                 },
               ),
+              SizedBox(height: 6.h,),
+              TextButton(
+                      onPressed: () {
+                        context.read<AuthCubit>().uploadImage();
+                      },
+                      child: const Text(
+                         'please select your photo',style: TextStyle(
+                        color: const Color.fromARGB(255, 4, 42, 73),
+                        fontWeight: FontWeight.bold,
+              ))),
+               SizedBox(height: 6.h,),
               const TermsAndConditionWidget(),
                SizedBox(height: 20.h),
               state is SignupLoadingState

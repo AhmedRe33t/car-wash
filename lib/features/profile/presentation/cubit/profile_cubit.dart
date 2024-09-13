@@ -14,8 +14,8 @@ class ProfileCubit extends Cubit<ProfileState> {
   getUserDtat()async{
  try {
   emit(GetProfileDataLoading());
+      listProfileData=[];
   await FirebaseFirestore.instance.collection('users').get().then((value){
-    List<ProfileDataMode> listProfileData=[];
    value.docs.forEach((element)async {
     await getCarTypeList(element);
      listProfileData.add(ProfileDataMode.fromJson(element.data(), listCarTypes));
@@ -35,10 +35,15 @@ class ProfileCubit extends Cubit<ProfileState> {
     
     );
   }
-  selectCar(String name,String image)async{
-   await FirebaseFirestore.instance.collection('users').doc(FirebaseAuth.instance.currentUser!.uid).collection('carTypes').doc().set({
+  selectCar(String name,String image,String premium,String deluxe,String standard)async{
+   await FirebaseFirestore.instance.collection('users').doc(FirebaseAuth.instance.currentUser!.uid).collection('carTypes').doc(FirebaseAuth.instance.currentUser!.uid).set({
      'name': name,
-     'image':image
+     'image':image,
+     'Premium':premium,
+     'deluxe':deluxe,
+     'standard':standard
+
+     
     });
     
     
