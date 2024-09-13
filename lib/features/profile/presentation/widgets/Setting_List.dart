@@ -19,12 +19,12 @@ class Setting_item_listtile extends StatelessWidget {
               (
                 height: 50.h,
                 width: 50.w,
-                child: Icon(icon.icon,color: AppColors.whiteColor,),
                 decoration: BoxDecoration
                 (
                   color:color ,
                   borderRadius: BorderRadius.circular(30.w)
                 ),
+                child: Icon(icon.icon,color: AppColors.whiteColor,),
               ) ,
               title: Text(title,style: CustomTextStyle.poppins500style18.copyWith
               (

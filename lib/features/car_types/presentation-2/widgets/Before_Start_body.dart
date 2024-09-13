@@ -9,6 +9,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BeforeStartBody extends StatelessWidget {
+  const BeforeStartBody({super.key});
+
   
 
   @override
@@ -66,7 +68,7 @@ class BeforeStartBody extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 30.w),
               child: ElevatedButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
+                  backgroundColor: WidgetStateProperty.all(
                     const Color.fromARGB(255, 188, 116, 8),
                   ),
                 ),

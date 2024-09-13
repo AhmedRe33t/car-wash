@@ -43,9 +43,9 @@ class CarTypesCubit extends Cubit<CarTypesState> {
     
    try {
   await FirebaseFirestore.instance.collection('carTypes').get().then((value){
-     value.docs.forEach((elemnt){
+     for (var elemnt in value.docs) {
       carTypes.add(CartypeModel.fromJson(elemnt.data()));
-     });
+     }
      emit(GetCarTypesSuccess());
    });
 } on Exception catch (e) {

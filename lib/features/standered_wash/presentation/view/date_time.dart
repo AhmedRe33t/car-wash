@@ -85,7 +85,7 @@ class DateTimeView extends StatelessWidget {
                     color: AppColors.amperColor,
                     onPressed: () {
                       context.read<DateTimeCubit>().addDateAndTime(datePicker: dateController.text, timePicker: timeController.text);
-                      customNavigate(context, path: '/overView');
+                      customNavigate(context, path: '/mapsView');
                     },
                   );
                 },

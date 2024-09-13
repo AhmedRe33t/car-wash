@@ -1,4 +1,3 @@
-import 'package:carwashing/app/car_wash_app.dart';
 import 'package:carwashing/features/car_types/presentation-2/widgets/Before_Start_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

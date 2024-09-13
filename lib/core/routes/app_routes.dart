@@ -6,8 +6,10 @@ import 'package:carwashing/features/car_types/cubit/cubit/before_start_page_cubi
 import 'package:carwashing/features/car_types/presentation-2/views/Before_Start.dart';
 import 'package:carwashing/features/home/presentation/widgets/home_nav_bar.dart';
 import 'package:carwashing/features/splash/presentation/view/splash_view.dart';
+import 'package:carwashing/features/standered_wash/presentation/cubit/Maps%20cubit/google_maps_cubit.dart';
 import 'package:carwashing/features/standered_wash/presentation/cubit/date_time_cubit.dart';
 import 'package:carwashing/features/standered_wash/presentation/view/date_time.dart';
+import 'package:carwashing/features/standered_wash/presentation/view/getLocation.dart';
 import 'package:carwashing/features/standered_wash/presentation/view/over_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -47,6 +49,12 @@ final GoRouter router = GoRouter(routes: [
   GoRoute(
       path: '/homeNavBar',
       builder: (context, state) => const HomeNavBarWidget()),
+  GoRoute(
+      path: '/mapsView',
+      builder: (context, state) => BlocProvider(
+            create: (context) => GoogleMapsCubit(),
+            child:const Getlocation()
+          )),
   GoRoute(
       path: '/beforeStartBody',
       builder: (context, state) => MultiBlocProvider(

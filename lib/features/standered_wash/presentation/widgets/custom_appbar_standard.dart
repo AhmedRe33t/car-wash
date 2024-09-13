@@ -17,7 +17,7 @@ class standered_screens extends StatelessWidget {
         Text(title,style: CustomTextStyle.pacifico600style24.copyWith(color: AppColors.primaryColor),),
         Text(subTitle,style: CustomTextStyle.poppins500style18.copyWith(color: AppColors.greyColor),),
         SizedBox(height: 40.h,),
-        Divider()
+        const Divider()
         
       ],
     );

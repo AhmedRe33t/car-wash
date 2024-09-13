@@ -1,13 +1,13 @@
+import 'package:carwashing/core/functions/navigation.dart';
+import 'package:carwashing/core/services/service_payment.dart';
 import 'package:carwashing/core/utils/app_colors.dart';
 import 'package:carwashing/core/utils/app_text_style.dart';
 import 'package:carwashing/core/widgets/custom_btn.dart';
-import 'package:carwashing/features/standered_wash/presentation/cubit/date_time_cubit.dart';
 import 'package:carwashing/features/standered_wash/presentation/widgets/custom_appbar_standard.dart';
 import 'package:carwashing/features/standered_wash/presentation/widgets/custom_list_title.dart';
 import 'package:carwashing/features/standered_wash/presentation/widgets/custom_over_view.dart';
 import 'package:carwashing/features/standered_wash/presentation/widgets/custom_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OverView extends StatelessWidget {
@@ -17,6 +17,7 @@ class OverView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           toolbarHeight: 140.h,
           backgroundColor: Colors.white,
           centerTitle: true,
@@ -151,7 +152,21 @@ class OverView extends StatelessWidget {
                 child: CustomBtn(
                   text: 'Book now ',
                   color: AppColors.amperColor,
-                  onPressed: () {},
+              
+                    onPressed: ()async {
+      
+    try {
+  await PaymentManager.MakePayment(20, 'usd');
+  customNavigaeReplacement(context, path: '/homeNavBar');
+} catch (e) {
+  print('Payment Error: $e');
+  ScaffoldMessenger.of(context).showSnackBar(
+    const SnackBar(content: Text('Payment failed. Please try again.'))
+  );
+}
+
+                     
+                  },
                 ),
               ),
             )

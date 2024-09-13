@@ -38,8 +38,8 @@ class _CustomSliderThemState extends State<CustomSliderThem> {
           children: 
             Utils.modelBuilder(
               labels, (index,labels){
-                final selectedColor=Colors.amber;
-                final unselectedColor=Colors.grey;
+                const selectedColor=Colors.amber;
+                const unselectedColor=Colors.grey;
 
                 final isSelected=index<=widget.indexTop;
 
@@ -86,12 +86,12 @@ Widget buildLabel({
     required double width,
     required Color color,
   }) =>
-      Container(
+      SizedBox(
         width: width,
         child: Text(
           label,
           textAlign: TextAlign.center,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ).copyWith(color: color),

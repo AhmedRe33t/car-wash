@@ -5,7 +5,6 @@ import 'package:carwashing/core/widgets/custom_btn.dart';
 import 'package:carwashing/features/home/presentation/widgets/home_list_view.dart';
 import 'package:carwashing/features/home/presentation/widgets/home_search_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeView extends StatelessWidget {

@@ -81,7 +81,7 @@ else{
     }
   }
   addProfileData(String id )async{
-      CollectionReference profileData= await FirebaseFirestore.instance.collection('users');
+      CollectionReference profileData= FirebaseFirestore.instance.collection('users');
          profileData.doc(id).set({
           'name':fristName,
           'email':emailAddress,

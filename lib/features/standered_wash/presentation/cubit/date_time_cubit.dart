@@ -33,13 +33,10 @@ class DateTimeCubit extends Cubit<DateTimeState> {
       try {
     dateTimeData=[];
   await FirebaseFirestore.instance.collection('DateTime').get().then((value){
-    value.docs.
-    forEach((elemnt){
+    for (var elemnt in value.docs) {
        dateTimeData.add(DateAndTime.fromJson(elemnt.data()));
        emit(GetDateAndTimeSuccess());
     }
-    
-    );
   
 
   });

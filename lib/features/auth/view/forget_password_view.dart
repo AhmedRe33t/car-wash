@@ -25,6 +25,6 @@ class ForgetPasswordView
         const  SliverToBoxAdapter(child: CustomForgotPasswrodForm()),
         ],
       ),
-    );;
+    );
   }
 }

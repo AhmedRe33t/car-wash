@@ -72,7 +72,7 @@ class CustomSignUpForm extends StatelessWidget {
                       },
                       child: const Text(
                          'please select your photo',style: TextStyle(
-                        color: const Color.fromARGB(255, 4, 42, 73),
+                        color: Color.fromARGB(255, 4, 42, 73),
                         fontWeight: FontWeight.bold,
               ))),
                SizedBox(height: 6.h,),

@@ -47,5 +47,13 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+  
+    <!-- Add permissions for Stripe integration -->
+    <key>NSCameraUsageDescription</key>
+    <string>This app needs camera access to scan your credit card.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>This app needs location access to enhance the user experience.</string>
+    <key>NSFaceIDUsageDescription</key>
+    <string>This app needs Face ID access to enhance the user experience.</string>
 </dict>
 </plist>
